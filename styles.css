@@ -15,10 +15,11 @@
   --chip-text: #334155;
 
   /* Utilities */
-  --radius-lg: 16px;
-  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-pill: 999px;
   --radius-sm: 8px;
-  --gap: 2rem;
+  --gap: 3rem;
   --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -146,10 +147,10 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -176,25 +177,27 @@ header {
 
 .header-buttons {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .btn.theme,
+#themeToggle,
 .btn#langToggle {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   cursor: pointer;
   color: var(--text-muted);
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+  position: relative;
 }
 
 .btn.theme:hover,
@@ -205,27 +208,29 @@ header {
 }
 
 /* Iconos de Tema */
-.btn.theme .theme-icon {
+#themeToggle .theme-icon {
   position: absolute;
   transition: var(--transition);
+  width: 20px;
+  height: 20px;
 }
 
-.btn.theme .moon {
+#themeToggle .moon {
   opacity: 1;
   transform: rotate(0);
 }
 
-.btn.theme .sun {
+#themeToggle .sun {
   opacity: 0;
   transform: rotate(180deg) scale(0);
 }
 
-.theme-dark .moon {
+#themeToggle.theme-dark .moon {
   opacity: 0;
   transform: rotate(-180deg) scale(0) !important;
 }
 
-.theme-dark .sun {
+#themeToggle.theme-dark .sun {
   opacity: 1;
   transform: rotate(0) scale(1) !important;
 }
@@ -257,7 +262,7 @@ header {
 }
 
 section+section {
-  margin-top: 2rem;
+  margin-top: var(--gap);
 }
 
 h2 {
